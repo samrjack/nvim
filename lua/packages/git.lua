@@ -5,7 +5,14 @@ return {
 		'tpope/vim-fugitive',
 		lazy = true,
 		keys = {
-			{"<leader>gg", vim.cmd.Git, desc = "git gui"}
+			{"<leader>gg", vim.cmd.Git, desc = "git gui"},
+			{'<leader>gB', function()
+				if  vim.bo.filetype == 'fugitiveblame' then
+					vim.api.nvim_win_close(0, true)
+				else
+					vim.cmd.Git('blame')
+				end
+			end, desc = 'toggle sideline blame'},
 		},
 	},
 	{
@@ -34,3 +41,5 @@ return {
 		},
 	},
 }
+
+
