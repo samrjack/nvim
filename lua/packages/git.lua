@@ -5,7 +5,7 @@ return {
 		'tpope/vim-fugitive',
 		lazy = true,
 		keys = {
-			{"<leader>gg", vim.cmd.Git, desc = "git gui"},
+			{"<leader>gG", vim.cmd.Git, desc = "futitive"},
 			{'<leader>gB', function()
 				if  vim.bo.filetype == 'fugitiveblame' then
 					vim.api.nvim_win_close(0, true)
@@ -25,7 +25,11 @@ return {
 			'sindrets/diffview.nvim',
 			'nvim-telescope/telescope.nvim',
 		},
+		lazy = true,
 		config = true,
+		keys = {
+			{'<leader>gg', function() require('neogit').open() end, desc = 'Git status'},
+		}
 	},
 	{
 		"f-person/git-blame.nvim",
