@@ -6,7 +6,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ 
+	local out = vim.fn.system({
 		"git",
 		"clone",
 		"--filter=blob:none",
@@ -32,7 +32,10 @@ vim.opt.rtp:prepend(lazypath)
 -- Trigger lazy to download all packages defined in the packages module
 require("lazy").setup({
 	spec = {
-		import = "packages"	
+		import = "packages",
+	},
+	install = {
+		colorscheme = {'everforest', 'dracula', 'retrobox', 'desert',},
 	},
 	change_detection = { notify = false },
 })
