@@ -21,7 +21,12 @@ return {
 		},
 		lazy = true,
 		config = function()
-			local opts = {}
+			local opts = {
+				settings = {
+					save_on_toggle = false,
+					sync_on_ui_close = true,
+				},
+			}
 			local harpoon = require('harpoon')
 			harpoon:setup(opts)
 
