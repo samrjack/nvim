@@ -1,2 +1,2 @@
-require("keys.general")
-require("keys.shortcuts")
+require('keys.general')
+require('keys.shortcuts')
