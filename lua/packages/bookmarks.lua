@@ -2,11 +2,15 @@ return {
 	{
 		'otavioschwanck/arrow.nvim',
 		lazy = true,
-		opts = {
-			show_icons = true,
-			leader_key = '<leader><Enter><Enter>', -- This plugin assigns a key by default which is dumb. This should turn it off.
-			buffer_leader_key = '<leader><Enter>b',
-	 	},
+		config = function()
+			local opts = {
+				show_icons = true,
+				leader_key = '<leader><Enter><Enter>', -- This plugin assigns a key by default which is dumb. This should turn it off.
+				buffer_leader_key = '<leader><Enter>b',
+			}
+			require('arrow').setup(opts)
+			require('arrow.persist').load_cache_file()
+		end,
 		keys = {
 			{'<leader><Enter><Enter>', desc = 'Bookmark Arrows'},
 			{'<leader><Enter>b', desc = 'Buffer Bookmarks'},
