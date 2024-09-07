@@ -8,11 +8,14 @@ return {
 			{'<leader>t', group = 'toggle'},
 			{'<leader>c', group = 'code'},
 			{'<leader>cT', group = 'treesitter'},
+			{'<leader>cL', group = 'LSP setrings'},
 			{'<leader>g', group = 'git'},
 			{'<leader>h', group = 'help'},
+			{'<leader>s', group = 'search/replace'},
+			{'<leader><Enter>', group = 'bookmarks'},
 			{'<leader>w', group = 'windows', proxy = "<C-w>"},
-			{'<leader>b', group = 'buffers', expand = function() 
-				return require ("which-key.extras").expand.buf() 
+			{'<leader>b', group = 'buffers', expand = function()
+				return require ("which-key.extras").expand.buf()
 			end},
 		},
 	},
