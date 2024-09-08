@@ -4,6 +4,7 @@ return {
 	opts = {
 		sort = {"alphanum"},
 		spec = {
+			{'<leader>', group = 'leader'},
 			{'<leader>f', group = 'file'},
 			{'<leader>t', group = 'toggle'},
 			{'<leader>c', group = 'code'},
@@ -21,11 +22,18 @@ return {
 	},
 	keys = {
 		{
-			"<leader>?",
+			'<leader>?',
 			function()
-				require("which-key").show({ global = false })
+				require('which-key').show({ global = false })
 			end,
-			desc = "Buffer Local Keymaps (which-key)",
+			desc = 'Local keymaps',
+		},
+		{
+			'<leader>/',
+			function()
+				require('which-key').show({ global = true })
+			end,
+			desc = 'Global keymaps',
 		},
 	},
 }
