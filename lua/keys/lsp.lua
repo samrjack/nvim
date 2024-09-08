@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(event)
 		local buf = event.buf
 		vim.b[buf].is_in_lsp = true
-		vim.b[buf].lsp_format_on_save = false
+		vim.b[buf].lsp_format_on_save = true
 
 		local id = vim.tbl_get(event, 'data', 'client_id')
 		local lsp_client = {}
