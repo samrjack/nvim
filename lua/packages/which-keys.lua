@@ -2,22 +2,26 @@ return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
 	opts = {
-		sort = {"alphanum"},
+		sort = { "alphanum" },
 		spec = {
-			{'<leader>', group = 'leader'},
-			{'<leader>f', group = 'file'},
-			{'<leader>t', group = 'toggle'},
-			{'<leader>c', group = 'code'},
-			{'<leader>cT', group = 'treesitter'},
-			{'<leader>cL', group = 'LSP setrings'},
-			{'<leader>g', group = 'git'},
-			{'<leader>h', group = 'help'},
-			{'<leader>s', group = 'search/replace'},
-			{'<leader><Enter>', group = 'bookmarks'},
-			{'<leader>w', group = 'windows', proxy = "<C-w>"},
-			{'<leader>b', group = 'buffers', expand = function()
-				return require ("which-key.extras").expand.buf()
-			end},
+			{ '<leader>',        group = 'Leader' },
+			{ '<leader>f',       group = 'File' },
+			{ '<leader>t',       group = 'Toggle' },
+			{ '<leader>c',       group = 'Code' },
+			{ '<leader>cT',      group = 'Treesitter' },
+			{ '<leader>cL',      group = 'LSP setrings' },
+			{ '<leader>g',       group = 'Git' },
+			{ '<leader>h',       group = 'Help' },
+			{ '<leader>s',       group = 'Search/Replace' },
+			{ '<leader><Enter>', group = 'Bookmarks' },
+			{ '<leader>w',       group = 'Windows',       proxy = "<C-w>" },
+			{
+				'<leader>b',
+				group = 'Buffers',
+				expand = function()
+					return require("which-key.extras").expand.buf()
+				end
+			},
 		},
 	},
 	keys = {
