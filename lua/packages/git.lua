@@ -48,6 +48,16 @@ return {
 			{ '<leader>gb', function() require('gitblame').toggle() end, desc = 'Toggle inline blame' },
 		},
 	},
+	{
+		'rhysd/git-messenger.vim',
+		lazy = true,
+		config = function()
+			vim.g.git_messenger_always_into_popup = true
+			vim.g.git_messenger_floating_win_opts = { border = 'double' }
+			vim.g.git_messenger_popup_content_margins = false
+		end,
+		keys = {
+			{ '<leader>gm', vim.cmd.GitMessenger, desc = 'View git commit message' },
+		},
+	}
 }
-
-
