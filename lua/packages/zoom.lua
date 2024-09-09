@@ -1,7 +1,17 @@
 return {
 	'nyngwang/NeoZoom.lua',
-	config = true,
+	lazy = true,
+	opts = {
+		popup = { enabled = false },
+		winopts = {
+			offset = {
+				height = .92,
+			},
+			border = 'double',
+		},
+	},
 	keys = {
-		{'<C-w>z', function() require('neo-zoom').neo_zoom() end, desc = 'Zoom'},
+		{ '<C-w>z',    vim.cmd.NeoZoomToggle, desc = 'Zoom' },
+		{ '<leader>z', vim.cmd.NeoZoomToggle, desc = 'Zoom' },
 	}
 }
