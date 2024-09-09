@@ -19,6 +19,9 @@ vim.opt.scrolloff = 8
 -- refresh
 vim.opt.updatetime = 500 -- defaults to 4000
 
+-- Highlighted column
+vim.opt.colorcolumn:append({ 80, 120 })
+
 -- Highlight copied text
 vim.api.nvim_create_autocmd('TextYankPost', {
 	group = vim.api.nvim_create_augroup('highlight_yank', {}),
