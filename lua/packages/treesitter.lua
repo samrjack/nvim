@@ -25,4 +25,12 @@ return {
 			{ '<leader>cTd', ':TSPlaygroundToggle<CR>', desc = 'TS Visualization' },
 		}
 	},
+	{
+		'nvim-treesitter/nvim-treesitter-textobjects',
+		lazy = true,
+		dependencies = {
+			'nvim-treesitter/nvim-treesitter',
+		},
+		event = { 'BufReadPre', 'BufNewFile' },
+	},
 }
