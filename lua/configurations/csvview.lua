@@ -1,8 +1,6 @@
 local function setup_csvview_keys(buf)
-	vim.keymap.set('n', '<leader>ct', require('csvview').enable,
+	vim.keymap.set('n', '<leader>ct', require('csvview').toggle,
 		{ buffer = buf, desc = 'Enable table view' })
-	vim.keymap.set('n', '<leader>cx', require('csvview').disable,
-		{ buffer = buf, desc = 'Disable table view' })
 end
 
 local id = vim.api.nvim_create_augroup('csvview_loading', {})

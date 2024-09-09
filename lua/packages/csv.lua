@@ -14,6 +14,7 @@ return {
 		ft = {
 			'csv',
 		},
+		-- keys set up in configurations file
 	},
 	{
 		'cameron-wags/rainbow_csv.nvim',
@@ -25,7 +26,7 @@ return {
 			'csv_whitespace',
 			'csv_pipe',
 			'rfc_csv',
-			'rfc_semicolon'
+			'rfc_semicolon',
 		},
 	},
 }
