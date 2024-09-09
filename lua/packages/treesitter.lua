@@ -7,19 +7,22 @@ return {
 			'RRethy/nvim-treesitter-endwise',
 			'windwp/nvim-ts-autotag',
 		},
+		lazy = true,
 		build = ':TSUpdate',
 		config = function()
 			require('configurations.treesitter')
 		end,
+		event = { 'BufReadPre', 'BufNewFile' },
 	},
 	{
 		'nvim-treesitter/playground',
 		dependencies = {
 			'nvim-treesitter/nvim-treesitter'
 		},
-		config = true,
+		lazy = true,
+		opts = {},
 		keys = {
-			{'<leader>cTd', ':TSPlaygroundToggle<CR>', desc = 'Visualization'},
+			{ '<leader>cTd', ':TSPlaygroundToggle<CR>', desc = 'TS Visualization' },
 		}
-	}
+	},
 }
