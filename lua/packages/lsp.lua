@@ -5,11 +5,11 @@ return {
 		opts = {},
 	},
 	{
-		"L3MON4D3/LuaSnip",
+		'L3MON4D3/LuaSnip',
 		-- follow latest release.
-		-- version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 		-- install jsregexp (optional!).
-		build = "make install_jsregexp"
+		build = 'make install_jsregexp',
 	},
 	{
 		'hrsh7th/nvim-cmp',
@@ -30,16 +30,16 @@ return {
 				mapping = cmp.mapping.preset.insert({
 					['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 					['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-					['<C-y>'] = cmp.mapping.confirm({ select = true }),
+					['<C-y><C-s>'] = cmp.mapping.confirm({ select = true }),
 					['<C-Space>'] = cmp.mapping.complete(),
 				}),
 				sources = cmp.config.sources({
-					{ name = 'nvim_lsp' },
-					{ name = 'lunasnip' },
-				},
-				{
-					{ name = 'buffer' },
-				}),
+						{ name = 'nvim_lsp' },
+						{ name = 'lunasnip' },
+					},
+					{
+						{ name = 'buffer' },
+					}),
 			}
 
 			cmp.setup(opts)
@@ -69,25 +69,25 @@ return {
 		lazy = false,
 		opts = {
 			-- See here for full list: https://github.com/williamboman/mason-lspconfig.nvim
-	 		ensure_installed = {
-				"bashls",
-				"gitlab_ci_ls", -- yaml
-				"gopls",
-				"html",
-				"jqls",
-				"jsonls",
-				"kotlin_language_server",
-				"lua_ls",
-				"matlab_ls",
-				"ocamllsp",
-				"openscad_lsp",
-				"pyright",
-				"vacuum", -- openAPI
-				"yamlls",
+			ensure_installed = {
+				'bashls',
+				'gitlab_ci_ls', -- yaml
+				'gopls',
+				'html',
+				'jqls',
+				'jsonls',
+				'kotlin_language_server',
+				'lua_ls',
+				'matlab_ls',
+				'ocamllsp',
+				'openscad_lsp',
+				'pyright',
+				'vacuum', -- openAPI
+				'yamlls',
 			},
 		},
 		keys = {
-			{ '<leader>cLM', ':Mason<cr>', desc = 'LSP server manager'},
+			{ '<leader>cLM', ':Mason<cr>', desc = 'LSP server manager' },
 		},
 	},
 	{
@@ -125,7 +125,7 @@ return {
 						capabilities = capabilities,
 						on_init = function(client)
 							local path = client.workspace_folders[1].name
-							if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
+							if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
 								return
 							end
 
@@ -140,15 +140,14 @@ return {
 									-- 	vim.env.VIMRUNTIME
 									-- }
 									-- Or pull in all of 'runtimepath'. This is a LOT slower
-									library = vim.api.nvim_get_runtime_file("", true)
+									library = vim.api.nvim_get_runtime_file('', true)
 								}
 							})
-
 						end,
 						settings = {
 							Lua = {
 								diagnostics = {
-									globals = { "vim", }
+									globals = { 'vim', }
 								}
 							}
 						}
