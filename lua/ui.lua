@@ -31,3 +31,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 		vim.highlight.on_yank { higroup = 'IncSearch', timeout = 400 }
 	end,
 })
+
+-- Dictionary for spelling corrections
+vim.opt.dictionary:append({ '/usr/share/dict/words' })
