@@ -7,11 +7,13 @@ local function setup_lsp_keymaps(buf)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = buf, desc = 'Goto definition' })
 	vim.keymap.set('n', '<leader>cd', vim.lsp.buf.definition, { buffer = buf, desc = 'Goto definition' })
 	vim.keymap.set('n', '<leader>cD', vim.lsp.buf.references, { buffer = buf, desc = 'Goto references' })
+	vim.keymap.set('n', '<leader>c?', vim.diagnostic.open_float, { buffer = buf, desc = 'Diagnostics' })
 	vim.keymap.set('n', '<leader>ci', vim.lsp.buf.implementation, { buffer = buf, desc = 'Goto implementation' })
 	vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { buffer = buf, desc = 'Rename' })
 	vim.keymap.set('n', '<leader>ct', vim.lsp.buf.type_definition, { buffer = buf, desc = 'Goto type definition' })
 	vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, { buffer = buf, desc = 'Hover' })
 	vim.keymap.set('n', '<leader>cs', vim.lsp.buf.signature_help, { buffer = buf, desc = 'Signature help' })
+	vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, { buffer = buf, desc = 'Signature help' })
 
 	-- formatting on save
 	vim.keymap.set('n', '<leader>cLf',
