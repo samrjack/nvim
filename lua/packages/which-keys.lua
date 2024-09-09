@@ -11,6 +11,7 @@ return {
 			{ '<leader>cT',      group = 'Treesitter' },
 			{ '<leader>cL',      group = 'LSP setrings' },
 			{ '<leader>g',       group = 'Git' },
+			{ '<leader>a',       group = 'AI' },
 			{ '<leader>h',       group = 'Help' },
 			{ '<leader>s',       group = 'Search/Replace' },
 			{ '<leader><Enter>', group = 'Bookmarks' },
