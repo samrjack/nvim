@@ -9,6 +9,9 @@ vim.opt.tabstop = 4     -- Number of spaces a tab represents
 vim.opt.shiftwidth = 4  -- Number of visual spces per tab
 vim.opt.softtabstop = 4 -- number of spaces in a tab when editing
 
+-- wraping lines when they're too long to view
+vim.opt.wrap = false
+
 -- searching
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
