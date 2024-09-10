@@ -17,11 +17,11 @@ return {
 			'L3MON4D3/LuaSnip',
 			'saadparwaiz1/cmp_luasnip',
 		},
-		config = function()
+		opts = function() -- When opts is a function, it needs to return the table to be used for setup
 			local cmp = require('cmp')
 
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
-			local opts = {
+			return {
 				snippet = {
 					expand = function(args)
 						require('luasnip').lsp_expand(args.body)
@@ -42,8 +42,7 @@ return {
 						{ name = 'buffer' },
 					}),
 			}
-			cmp.setup(opts)
-		end
+		end,
 	},
 	{
 		'hrsh7th/cmp-nvim-lsp',

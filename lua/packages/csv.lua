@@ -2,12 +2,12 @@ return {
 	{
 		'hat0uma/csvview.nvim',
 		lazy = true,
-		config = function()
-			local opts = {
-				view = {
-					display_mode = "border",
-				},
-			}
+		opts = {
+			view = {
+				display_mode = "border",
+			},
+		},
+		config = function(_, opts)
 			require('csvview').setup(opts)
 			require('configurations.csvview')
 		end,

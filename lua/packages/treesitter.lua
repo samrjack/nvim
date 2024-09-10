@@ -33,28 +33,25 @@ return {
 		},
 		event = { 'BufReadPre', 'BufNewFile' },
 		-- For future text objects, check https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-		config = function()
-			local opts = {
-				textobjects = {
-					select = {
-						enable = true,
-						keymaps = {
-							['if'] = { query = '@function.inner', desc = 'Inner function' },
-						}
+		opts = {
+			textobjects = {
+				select = {
+					enable = true,
+					keymaps = {
+						['if'] = { query = '@function.inner', desc = 'Inner function' },
+					}
+				},
+				swap = {
+					enable = true,
+					swap_next = {
+						['<leader>c>'] = '@parameter.inner',
 					},
-					swap = {
-						enable = true,
-						swap_next = {
-							['<leader>c>'] = '@parameter.inner',
-						},
-						swap_previous = {
-							['<leader>c<'] = '@parameter.inner',
-						},
+					swap_previous = {
+						['<leader>c<'] = '@parameter.inner',
 					},
 				},
-			}
-
-			require('nvim-treesitter.configs').setup(opts)
-		end
+			},
+		},
+		main = 'nvim-treesitter.configs',
 	},
 }

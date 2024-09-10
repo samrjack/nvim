@@ -3,15 +3,15 @@ return {
 	dependencies = {
 		'nvim-treesitter/nvim-treesitter',
 	},
-	config = function()
-		local opts = {}
-		require('rainbow-delimiters.setup').setup(opts)
-	end,
+	opts = {},
+	main = 'rainbow-delimiters.setup',
 	keys = {
-		{ '<leader>tr',
-		function()
-			require('rainbow-delimiters').toggle()
-		end,
-		desc = 'rainbow delimiters' },
+		{
+			'<leader>tr',
+			function()
+				require('rainbow-delimiters').toggle()
+			end,
+			desc = 'rainbow delimiters'
+		},
 	},
 }
