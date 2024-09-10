@@ -24,24 +24,24 @@ return {
 			local opts = {
 				snippet = {
 					expand = function(args)
-						require('lunasnip').lsp_expand(args.body)
+						require('luasnip').lsp_expand(args.body)
 					end
 				},
 				mapping = cmp.mapping.preset.insert({
 					['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 					['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 					['<C-y><C-s>'] = cmp.mapping.confirm({ select = true }),
+					['<C-y>'] = cmp.mapping.confirm({ select = true }),
 					['<C-Space>'] = cmp.mapping.complete(),
 				}),
 				sources = cmp.config.sources({
 						{ name = 'nvim_lsp' },
-						{ name = 'lunasnip' },
+						{ name = 'luasnip' },
 					},
 					{
 						{ name = 'buffer' },
 					}),
 			}
-
 			cmp.setup(opts)
 		end
 	},
@@ -67,6 +67,7 @@ return {
 			'williamboman/mason.nvim',
 		},
 		lazy = false,
+
 		opts = {
 			-- See here for full list: https://github.com/williamboman/mason-lspconfig.nvim
 			ensure_installed = {
