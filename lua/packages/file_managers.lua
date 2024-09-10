@@ -31,5 +31,17 @@ return {
 			{ '<C-n>', ':Neotree left reveal toggle<cr>',  desc = 'File tree' },
 			{ 'g.',    ':Neotree float reveal toggle<cr>', desc = 'File tree' },
 		}
+	},
+	{
+		'stevearc/oil.nvim',
+		dependencies = {
+			'nvim-tree/nvim-web-devicons'
+		},
+		opts = {
+			default_file_explorer = false,
+		},
+		keys = {
+			{ 'go', vim.cmd.Oil, desc = 'Oil' }
+		},
 	}
 }
