@@ -8,5 +8,11 @@ return {
 			{ 'cs', desc = 'Change surrounding' },
 			{ 'ds', desc = 'Delete surrounding' },
 		}
+	},
+	{
+		'windwp/nvim-autopairs',
+		lazy = true,
+		event = 'InsertEnter',
+		opts = {},
 	}
 }
