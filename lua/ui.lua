@@ -11,6 +11,7 @@ vim.opt.softtabstop = 4 -- number of spaces in a tab when editing
 
 -- wraping lines when they're too long to view
 vim.opt.wrap = false
+vim.opt.cursorline = true
 
 -- searching
 vim.opt.hlsearch = true
