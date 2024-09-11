@@ -35,6 +35,14 @@ return {
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		opts = {
+			tabline = {
+				lualine_a = { 'buffers' },
+				lualine_b = { '' },
+				lualine_c = { 'filesize', 'filename' },
+				lualine_x = { 'searchcount', 'selectioncount' },
+				lualine_y = { { 'datetime', style = 'iso' } },
+				lualine_z = { 'tabs' }
+			},
 			sections = {
 				lualine_a = { 'mode' },
 				lualine_b = { 'branch', 'diff', 'diagnostics' },
@@ -43,13 +51,13 @@ return {
 				lualine_y = { 'progress' },
 				lualine_z = { 'location' }
 			},
-			tabline = {
-				lualine_a = { 'buffers' },
-				lualine_b = { '' },
-				lualine_c = { 'filesize', 'filename' },
-				lualine_x = { 'searchcount', 'selectioncount' },
-				lualine_y = { { 'datetime', style = 'iso' } },
-				lualine_z = { 'tabs' }
+			inactive_sections = {
+				lualine_a = {},
+				lualine_b = { 'diff' },
+				lualine_c = { { 'filename', path = 3 } },
+				lualine_x = { 'location' },
+				lualine_y = {},
+				lualine_z = {}
 			},
 			extensions = {
 				'fugitive',
