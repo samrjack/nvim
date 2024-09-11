@@ -1,5 +1,12 @@
 -- All lsp bindings for working in most code bases
 
+local function show_lsp()
+	local active_lsps = vim.lsp.get_active_clients()
+	for _, active_lsp in pairs(active_lsps) do
+		print(active_lsp.name)
+	end
+end
+
 local function setup_lsp_keymaps(buf)
 	vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = buf, desc = 'LSP Code Action' })
 	vim.keymap.set('n', '<leader>cf', vim.lsp.buf.format, { buffer = buf, desc = 'Format code' })
@@ -13,6 +20,7 @@ local function setup_lsp_keymaps(buf)
 	vim.keymap.set('n', '<leader>ct', vim.lsp.buf.type_definition, { buffer = buf, desc = 'Goto type definition' })
 	vim.keymap.set('n', '<leader>ch', vim.lsp.buf.hover, { buffer = buf, desc = 'Hover' })
 	vim.keymap.set('n', '<leader>cs', vim.lsp.buf.signature_help, { buffer = buf, desc = 'Signature help' })
+	vim.keymap.set('n', '<leader>cL?', show_lsp, { buffer = buf, desc = 'Signature help' })
 	vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, { buffer = buf, desc = 'Signature help' })
 
 	-- formatting on save
