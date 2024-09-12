@@ -1,7 +1,7 @@
 -- All lsp bindings for working in most code bases
 
 local function show_lsp()
-	local active_lsps = vim.lsp.get_active_clients()
+	local active_lsps = vim.lsp.get_clients()
 	for _, active_lsp in pairs(active_lsps) do
 		print(active_lsp.name)
 	end
