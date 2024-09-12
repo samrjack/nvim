@@ -30,17 +30,27 @@ local function neocodeium_status()
 	return luacodeium
 end
 
+local function get_lsp_client()
+	local active_lsps = vim.lsp.get_clients()
+	for _, active_lsp in pairs(active_lsps) do
+		return active_lsp.name
+	end
+	return ''
+end
+
 return {
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
+		lazy = true,
+		event = 'VimEnter',
 		opts = {
 			tabline = {
 				lualine_a = { 'buffers' },
 				lualine_b = { '' },
 				lualine_c = { 'filesize', 'filename' },
 				lualine_x = { 'searchcount', 'selectioncount' },
-				lualine_y = { { 'datetime', style = 'iso' } },
+				lualine_y = { get_lsp_client, { 'datetime', style = 'iso' } },
 				lualine_z = { 'tabs' }
 			},
 			sections = {
