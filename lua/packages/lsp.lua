@@ -107,7 +107,7 @@ return {
 			'hrsh7th/nvim-cmp',
 		},
 		lazy = true,
-		event = { 'FileReadPre', 'FileType' },
+		event = { 'BufReadPre', 'FileType' },
 		config = function()
 			local lspconfig = require('lspconfig')
 

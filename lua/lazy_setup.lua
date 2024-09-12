@@ -32,7 +32,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Trigger lazy to download all packages defined in the packages module
 require("lazy").setup({
 	spec = {
-		import = "packages",
+		{ import = "packages" },
 	},
 	install = {
 		colorscheme = { 'everforest', 'dracula', 'retrobox', 'desert', },
