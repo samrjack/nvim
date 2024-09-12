@@ -1,7 +1,8 @@
 return {
-    {
-        'glepnir/nerdicons.nvim',
-        cmd = 'NerdIcons',
-        config = true,
-    },
+	{
+		'glepnir/nerdicons.nvim',
+		lazy = true,
+		cmd = 'NerdIcons',
+		config = true,
+	},
 }

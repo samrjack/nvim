@@ -3,6 +3,7 @@ return {
 		-- Gives nice download progress info in the bottom right
 		'j-hui/fidget.nvim',
 		opts = {},
+		lazy = true,
 	},
 	{
 		'L3MON4D3/LuaSnip',
@@ -10,6 +11,7 @@ return {
 		version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 		-- install jsregexp (optional!).
 		build = 'make install_jsregexp',
+		lazy = true
 	},
 	{
 		'hrsh7th/nvim-cmp',
@@ -17,6 +19,7 @@ return {
 			'L3MON4D3/LuaSnip',
 			'saadparwaiz1/cmp_luasnip',
 		},
+		lazy = true,
 		opts = function() -- When opts is a function, it needs to return the table to be used for setup
 			local cmp = require('cmp')
 
@@ -46,6 +49,7 @@ return {
 	},
 	{
 		'hrsh7th/cmp-nvim-lsp',
+		lazy = true,
 		opts = {
 			sources = {
 				{
@@ -56,8 +60,13 @@ return {
 	},
 	{
 		'williamboman/mason.nvim',
-		lazy = false,
+		build = ':MasonUpdate',
+		lazy = true,
 		opts = {},
+		cmd = "Mason",
+		keys = {
+			{ '<leader>cLM', ':Mason<cr>', desc = 'LSP server manager' },
+		},
 	},
 	{
 		'williamboman/mason-lspconfig.nvim',
@@ -65,8 +74,7 @@ return {
 			'j-hui/fidget.nvim',
 			'williamboman/mason.nvim',
 		},
-		lazy = false,
-
+		lazy = true,
 		opts = {
 			-- See here for full list: https://github.com/williamboman/mason-lspconfig.nvim
 			ensure_installed = {
@@ -86,9 +94,6 @@ return {
 				'yamlls',
 			},
 		},
-		keys = {
-			{ '<leader>cLM', ':Mason<cr>', desc = 'LSP server manager' },
-		},
 	},
 	{
 		'neovim/nvim-lspconfig',
@@ -101,6 +106,8 @@ return {
 			'hrsh7th/cmp-cmdline',
 			'hrsh7th/nvim-cmp',
 		},
+		lazy = true,
+		event = { 'FileReadPre', 'FileType' },
 		config = function()
 			local lspconfig = require('lspconfig')
 

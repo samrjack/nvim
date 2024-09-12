@@ -2,6 +2,7 @@
 
 return {
 	'mcauley-penney/tidy.nvim',
-	lazy = false,
+	lazy = true,
+	event = 'BufWritePre',
 	opts = {},
 }

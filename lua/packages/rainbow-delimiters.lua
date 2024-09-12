@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		'nvim-treesitter/nvim-treesitter',
 	},
+	lazy = true,
 	opts = {},
 	main = 'rainbow-delimiters.setup',
 	keys = {

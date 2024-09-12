@@ -10,6 +10,8 @@ return {
 		},
 	},
 	{
-		'itchyny/calendar.vim'
+		'itchyny/calendar.vim',
+		lazy = true,
+		cmd = "Calendar"
 	}
 }

@@ -21,6 +21,8 @@ return {
 	},
 	{
 		'airblade/vim-gitgutter',
+		lazy = true,
+		event = 'BufRead'
 	},
 	{
 		'NeogitOrg/neogit',

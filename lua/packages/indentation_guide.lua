@@ -5,6 +5,7 @@ return {
 		opts = {
 			enabled = true,
 		},
+		lazy = true,
 		keys = {
 			{
 				'<leader>ti',

@@ -1,5 +1,7 @@
 return {
 	'norcalli/nvim-colorizer.lua',
+	lazy = true,
+	event = 'BufWinEnter',
 	opts = {
 		'*',        -- Highlight all files, but customize some others.
 		css = {
