@@ -20,9 +20,20 @@ return {
 		},
 	},
 	{
-		'airblade/vim-gitgutter',
+		'lewis6991/gitsigns.nvim',
 		lazy = true,
-		event = 'BufRead'
+		event = 'BufRead',
+		opts = {
+			current_line_blame_formatter =
+			' <author_time:%Y-%m-%d %H:%M> (<author_time:%R>) • <summary> • <author> • [<abbrev_sha>]',
+			current_line_blame_opts = {
+				delay = 400,
+			}
+		},
+		keys = {
+			{ '<leader>gb', function() vim.cmd.Gitsigns('toggle_current_line_blame') end, desc = 'Toggle inline blame' },
+			{ '<leader>gd', function() require('gitsigns').toggle_deleted() end,          desc = 'Toggle deleted' },
+		}
 	},
 	{
 		'NeogitOrg/neogit',
@@ -36,19 +47,6 @@ return {
 		keys = {
 			{ '<leader>gg', function() require('neogit').open() end, desc = 'Git status' },
 		}
-	},
-	{
-		"f-person/git-blame.nvim",
-		lazy = true,
-		opts = {
-			enabled = false, -- if you want to enable the plugin
-			message_template = "  <date> • <summary> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
-			date_format = "%Y-%m-%d %H:%M:%S", -- template for the date, check Date format section for more options
-			virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
-		},
-		keys = {
-			{ '<leader>gb', function() require('gitblame').toggle() end, desc = 'Toggle inline blame' },
-		},
 	},
 	{
 		'rhysd/git-messenger.vim',
