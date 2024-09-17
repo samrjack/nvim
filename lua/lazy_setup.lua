@@ -33,6 +33,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ import = "packages" },
+		{ import = "packages.langs" }
 	},
 	install = {
 		colorscheme = { 'everforest', 'dracula', 'retrobox', 'desert', },
