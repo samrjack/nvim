@@ -19,6 +19,7 @@ return {
 	{
 		'cameron-wags/rainbow_csv.nvim',
 		lazy = true,
+		opt = {},
 		ft = {
 			'csv',
 			'tsv',
@@ -27,6 +28,12 @@ return {
 			'csv_pipe',
 			'rfc_csv',
 			'rfc_semicolon',
+		},
+		cmd = {
+			'RainbowDelim',
+			'RainbowDelimSimple',
+			'RainbowDelimQuoted',
+			'RainbowMultiDelim'
 		},
 	},
 }

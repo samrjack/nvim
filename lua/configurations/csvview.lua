@@ -5,10 +5,10 @@ end
 
 local id = vim.api.nvim_create_augroup('csvview_loading', {})
 
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+vim.api.nvim_create_autocmd({ 'FileType' }, {
 	group = id,
 	desc = 'Add key shortcuts for csv files',
-	pattern = { '*.csv' },
+	pattern = { 'csv' },
 	callback = function(ev)
 		setup_csvview_keys(ev.buf)
 		require('csvview').enable()
