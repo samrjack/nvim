@@ -97,4 +97,21 @@ return {
 		},
 		main = 'nvim-treesitter.configs',
 	},
+	{
+		'nvim-treesitter/nvim-treesitter-context',
+		lazy = true,
+		event = { 'VeryLazy' },
+		opts = {
+			enable = true,
+			max_lines = 0, -- unlimited lines
+			min_window_height = 0,
+			line_numbers = true,
+			multiline_threshold = 20,
+			trim_scope = 'outer',
+			mode = 'cursor',
+			separator = nil,
+			zindex = 20,
+			on_atach = nil,
+		}
+	}
 }
