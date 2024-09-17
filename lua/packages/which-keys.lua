@@ -18,6 +18,7 @@ return {
 			{ '<leader>s',       group = 'Search/Replace' },
 			{ '<leader>t',       group = 'Toggle' },
 			{ '<leader>w',       group = 'Windows',          proxy = "<C-w>" },
+			{ 'gp',              group = 'Preview',          proxy = "<C-w>" },
 			{
 				'<leader>b',
 				group = 'Buffers',
