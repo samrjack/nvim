@@ -25,4 +25,12 @@ return {
 			{ 'gpr', function() require('goto-preview').goto_preview_references() end,      desc = 'Preview references' },
 		},
 	},
+	{
+		"NStefan002/screenkey.nvim",
+		lazy = true,
+		version = "*", -- or branch = "dev", to use the latest commit
+		keys = {
+			{ '<leader>hk', function() vim.cmd.Screenkey('toggle') end, desc = 'Key logger' }
+		},
+	}
 }
