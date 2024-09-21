@@ -112,6 +112,12 @@ return {
 			separator = nil,
 			zindex = 20,
 			on_atach = nil,
+		},
+		keys = {
+			{ '<leader>cTce', vim.cmd.TSContextEnable,                                                  desc = 'Enable context' },
+			{ '<leader>cTcd', vim.cmd.TSContextDisable,                                                 desc = 'Disable context' },
+			{ '<leader>cTct', function() require('treesitter-context').setup({ mode = 'topline' }) end, desc = 'Topline context' },
+			{ '<leader>cTcc', function() require('treesitter-context').setup({ mode = 'cursor' }) end,  desc = 'Cursor context' },
 		}
 	}
 }
