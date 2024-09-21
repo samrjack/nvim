@@ -108,7 +108,7 @@ return {
 			line_numbers = true,
 			multiline_threshold = 20,
 			trim_scope = 'outer',
-			mode = 'cursor',
+			mode = 'topline', -- Options of 'cursor' for current line or 'topline'
 			separator = nil,
 			zindex = 20,
 			on_atach = nil,
