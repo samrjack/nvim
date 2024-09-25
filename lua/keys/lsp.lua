@@ -38,6 +38,13 @@ local function inlay_hints(buf, lsp_client)
 		vim.lsp.inlay_hint.enable(true, { bufnr = buf })
 		vim.keymap.set('n', '<leader>cLi', function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = buf }), { bufnr = buf })
+			local status
+			if vim.lsp.inlay_hint.is_enabled({ bufnr = buf }) then
+				status = "enabled"
+			else
+				status = "disabled"
+			end
+			vim.notify("inlay hints " .. status)
 		end, { buffer = buf, desc = 'Toggle inlay hints' })
 	end
 end
@@ -47,7 +54,7 @@ local lsp_augroup = vim.api.nvim_create_augroup('lsp_commands', {})
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = lsp_augroup,
-	desc = 'on lsp attach',
+	desc = 'On lsp attach',
 	callback = function(event)
 		local buf = event.buf
 		vim.b[buf].is_in_lsp = true
@@ -75,3 +82,5 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 		end
 	end,
 })
+
+vim.keymap.set('n', '<leader>cLI', vim.cmd.LspInfo, { desc = "LSP Info" })
