@@ -81,7 +81,8 @@ return {
 				select = {
 					enable = true,
 					keymaps = {
-						['if'] = { query = '@function.inner', desc = 'Inner function' },
+						['if'] = { query = '@function.inner', desc = 'Function' },
+						['af'] = { query = '@function.outer', desc = 'Function' }
 					}
 				},
 				swap = {
