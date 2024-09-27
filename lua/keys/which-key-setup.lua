@@ -15,6 +15,7 @@ M.defined_n_operators = {
 	{ '<leader>c',       group = 'Code' },
 	{ '<leader>cL',      group = 'LSP settings' },
 	{ '<leader>cT',      group = 'Treesitter' },
+	{ '<leader>cTc',     group = 'Treesitter context' },
 	{ '<leader>cm',      group = 'Markdown settings' },
 	{ '<leader>f',       group = 'File' },
 	{ '<leader>g',       group = 'Git' },

@@ -81,8 +81,11 @@ return {
 				select = {
 					enable = true,
 					keymaps = {
+						['ac'] = { query = '@class.outer', desc = 'Class' },
+						['af'] = { query = '@function.outer', desc = 'Function' },
+						['c'] = { query = '@conditional.inner', desc = 'Conditional' },
+						['ic'] = { query = '@class.inner', desc = 'Class' },
 						['if'] = { query = '@function.inner', desc = 'Function' },
-						['af'] = { query = '@function.outer', desc = 'Function' }
 					}
 				},
 				swap = {
@@ -94,6 +97,16 @@ return {
 						['<leader>c<'] = '@parameter.inner',
 					},
 				},
+				move = {
+					enable = true,
+					set_jumps = false,
+					goto_next_start = {
+						[']z'] = { query = '@fold', query_group = 'folds', desc = 'Next fold' },
+					},
+					goto_next_end = {
+						[']C'] = '@class.outer'
+					},
+				}
 			},
 		},
 		main = 'nvim-treesitter.configs',
