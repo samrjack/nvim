@@ -3,22 +3,10 @@ return {
 	lazy = true,
 	event = 'VeryLazy',
 	opts = {
+		preset = "modern",
 		sort = { "alphanum" },
+		-- Only put which-key specific bindings in here
 		spec = {
-			{ '<leader>',        group = 'Leader' },
-			{ '<leader><Enter>', group = 'Bookmarks' },
-			{ '<leader>a',       group = 'AI' },
-			{ '<leader>c',       group = 'Code' },
-			{ '<leader>cL',      group = 'LSP settings' },
-			{ '<leader>cT',      group = 'Treesitter' },
-			{ '<leader>cm',      group = 'Markdown settings' },
-			{ '<leader>f',       group = 'File' },
-			{ '<leader>g',       group = 'Git' },
-			{ '<leader>h',       group = 'Help' },
-			{ '<leader>s',       group = 'Search/Replace' },
-			{ '<leader>t',       group = 'Toggle' },
-			{ '<leader>w',       group = 'Windows',          proxy = "<C-w>" },
-			{ 'gp',              group = 'Preview',          proxy = "<C-w>" },
 			{
 				'<leader>b',
 				group = 'Buffers',
@@ -28,12 +16,18 @@ return {
 			},
 		},
 	},
+	config = function(_, opts)
+		require('which-key').setup(opts)
+		require('keys.which-key-setup').presets()
+		require('keys.which-key-setup').defined()
+	end,
 	keys = {
 		{
 			'<leader>?',
 			function()
 				require('which-key').show({ global = false })
 			end,
+			mode = { 'n', 'x' },
 			desc = 'Local keymaps',
 		},
 		{
@@ -41,6 +35,7 @@ return {
 			function()
 				require('which-key').show({ global = true })
 			end,
+			mode = { 'n', 'x' },
 			desc = 'Global keymaps',
 		},
 	},
