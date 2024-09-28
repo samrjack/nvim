@@ -9,13 +9,22 @@ return {
 		'rafamadriz/friendly-snippets',
 		lazy = true,
 		config = function()
-			require("luasnip.loaders.from_vscode").lazy_load()
+			require('luasnip.loaders.from_vscode').lazy_load()
+		end,
+	},
+	{
+		-- This one doesn't quite work yet
+		'molleweide/LuaSnip-snippets.nvim',
+		lazy = true,
+		config = function()
+			require('luasnip.loaders.from_lua').lazy_load()
 		end,
 	},
 	{
 		'L3MON4D3/LuaSnip',
 		dependencies = {
 			'rafamadriz/friendly-snippets',
+			'molleweide/LuaSnip-snippets.nvim',
 		},
 		-- follow latest release.
 		version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
@@ -40,7 +49,6 @@ return {
 		lazy = true,
 		opts = function() -- When opts is a function, it needs to return the table to be used for setup
 			local cmp = require('cmp')
-
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 			return {
 				snippet = {
@@ -146,7 +154,7 @@ return {
 		build = ':MasonUpdate',
 		lazy = true,
 		opts = {},
-		cmd = "Mason",
+		cmd = 'Mason',
 		keys = {
 			{ '<leader>cLM', ':Mason<cr>', desc = 'LSP server manager' },
 		},
