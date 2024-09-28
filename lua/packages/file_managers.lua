@@ -40,6 +40,30 @@ return {
 		lazy = true,
 		opts = {
 			default_file_explorer = false,
+			columns = {
+				'icon',
+				'permissions',
+				'size',
+				'mtime',
+			},
+			view_options = {
+				show_hidden = true,
+				sort = {
+					{ 'name', 'asc' }
+				}
+			},
+			-- Automatically do git operations on the files
+			git = {
+				add = function()
+					return true
+				end,
+				mv = function()
+					return true
+				end,
+				rm = function()
+					return true
+				end,
+			}
 		},
 		cmd = { 'Oil' },
 		keys = {
