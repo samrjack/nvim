@@ -53,6 +53,30 @@ M.preset_text_objects = {
 	{ ']', group = 'Next' },
 }
 
+M.preset_navigation = {
+	preset = true,
+	mode = { 'n', 'x' },
+	{ 'H',  desc = 'Home line of window (top)' },
+	{ 'L',  desc = 'Last line of window' },
+	{ 'M',  desc = 'Middle line of window' },
+	{ '[%', desc = 'Previous unmatched group' },
+	{ '[(', desc = 'Previous (' },
+	{ '[<', desc = 'Previous <' },
+	{ '[f', desc = 'Go to file' },
+	{ '[M', desc = 'Previous method end' },
+	{ '[m', desc = 'Previous method start' },
+	{ '[s', desc = 'Previous misspelled word' },
+	{ '[{', desc = 'Previous {' },
+	{ ']%', desc = 'Next unmatched group' },
+	{ '])', desc = 'Next (' },
+	{ ']>', desc = 'Next <' },
+	{ ']f', desc = 'Go to file' },
+	{ ']M', desc = 'Next method end' },
+	{ ']m', desc = 'Next method start' },
+	{ ']s', desc = 'Next misspelled word' },
+	{ ']{', desc = 'Next {' },
+}
+
 function M.presets()
 	local wk = require('which-key')
 	wk.add(M.preset_operators)

@@ -5,6 +5,9 @@ return {
 	opts = {
 		preset = "modern",
 		sort = { "alphanum" },
+		win = {
+			height = { min = 6, max = 35 }
+		},
 		-- Only put which-key specific bindings in here
 		spec = {
 			{
