@@ -13,6 +13,7 @@ return {
 		opts = {
 			highlight = { enable = true },
 			indent = { enable = true },
+			opts_extend = { 'ensure_installed' },
 			ensure_installed = {
 				'bash',
 				'bibtex',
@@ -37,8 +38,8 @@ return {
 				'javascript',
 				'jq',
 				'json',
+				'json5',
 				'kotlin',
-				'latex',
 				'lua',
 				'markdown',
 				'markdown_inline',
