@@ -8,7 +8,7 @@ local id = vim.api.nvim_create_augroup('csvview_loading', {})
 vim.api.nvim_create_autocmd({ 'FileType' }, {
 	group = id,
 	desc = 'Add key shortcuts for csv files',
-	pattern = { 'csv' },
+	pattern = { 'csv', 'tsv' },
 	callback = function(ev)
 		setup_csvview_keys(ev.buf)
 		require('csvview').enable()
