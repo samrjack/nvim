@@ -6,4 +6,4 @@ require('spelling')
 require('ui')
 
 -- Comes last so all other general configuration can be completed and built upon in the plugins
-require('lazy_setup')
+require('lazy.lazy_setup')
