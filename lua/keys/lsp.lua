@@ -22,6 +22,7 @@ local function setup_lsp_keymaps(buf)
 	vim.keymap.set('n', '<leader>cs', vim.lsp.buf.signature_help, { buffer = buf, desc = 'Signature help' })
 	vim.keymap.set('n', '<leader>cL?', show_lsp, { buffer = buf, desc = 'Signature help' })
 	vim.keymap.set('i', '<A-h>', vim.lsp.buf.signature_help, { buffer = buf, desc = 'Signature help' })
+	vim.keymap.set('i', '<A-k>', vim.lsp.buf.signature_help, { buffer = buf, desc = 'Signature help' })
 	vim.keymap.set('i', '<A-j>', vim.lsp.buf.hover, { buffer = buf, desc = 'Hover' })
 
 	-- formatting on save
