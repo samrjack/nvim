@@ -1,11 +1,5 @@
 return {
 	{
-		-- Gives nice download progress info in the bottom right
-		'j-hui/fidget.nvim',
-		opts = {},
-		lazy = true,
-	},
-	{
 		'rafamadriz/friendly-snippets',
 		lazy = true,
 		config = function()
@@ -31,7 +25,6 @@ return {
 		-- install jsregexp (optional!).
 		build = 'make install_jsregexp',
 		lazy = true
-
 	},
 	{
 		'hrsh7th/nvim-cmp',
@@ -74,13 +67,14 @@ return {
 						c = cmp.mapping.confirm({ select = true })
 					}),
 					['<CR>'] = cmp.mapping({
-						i = function(fallback)
-							if cmp.visible() and cmp.get_active_entry() then
-								cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-							else
-								fallback()
-							end
-						end,
+						-- i = function(fallback)
+						-- 	if cmp.visible() and cmp.get_active_entry() then
+						-- 		cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+						-- 	else
+						-- 		fallback()
+						-- 	end
+						-- end,
+						i = cmp.mapping.confirm({ select = true }),
 						s = cmp.mapping.confirm({ select = true }),
 						c = function(fallback)
 							if cmp.visible() and cmp.get_active_entry() then
@@ -139,17 +133,6 @@ return {
 		end,
 	},
 	{
-		'hrsh7th/cmp-nvim-lsp',
-		lazy = true,
-		opts = {
-			sources = {
-				{
-					name = 'nvim_lsp'
-				},
-			},
-		},
-	},
-	{
 		'williamboman/mason.nvim',
 		build = ':MasonUpdate',
 		lazy = true,
@@ -162,18 +145,17 @@ return {
 	{
 		'williamboman/mason-lspconfig.nvim',
 		dependencies = {
-			'j-hui/fidget.nvim',
+			{ 'j-hui/fidget.nvim', opts = {}, lazy = true },
 			'williamboman/mason.nvim',
 		},
 		lazy = true,
+		opts_extend = { 'ensure_installed' },
 		opts = {
 			-- See here for full list: https://github.com/williamboman/mason-lspconfig.nvim
 			ensure_installed = {
 				'bashls',
 				'gitlab_ci_ls', -- yaml
-				'gopls',
 				'html',
-				'jqls',
 				'jsonls',
 				'kotlin_language_server',
 				'lua_ls',
@@ -189,9 +171,10 @@ return {
 	{
 		'neovim/nvim-lspconfig',
 		dependencies = {
-			'williamboman/mason.nvim',
-			'williamboman/mason-lspconfig.nvim',
 			'hrsh7th/nvim-cmp',
+			'williamboman/mason-lspconfig.nvim',
+			'williamboman/mason.nvim',
+			{ 'b0o/SchemaStore.nvim', lazy = true, version = false }, -- For JSON and YAML
 		},
 		lazy = true,
 		event = { 'BufReadPre', 'FileType' },
@@ -247,7 +230,41 @@ return {
 						}
 					})
 				end,
-
+				['jsonls'] = function()
+					lspconfig.jsonls.setup({
+						capabilities = capabilities,
+						settings = {
+							json = {
+								format = {
+									enable = true,
+								},
+								validate = { enable = true },
+							},
+						},
+						on_new_config = function(new_config)
+							new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+							vim.list_extend(new_config.settings.json.schemas, require('schemastore').json.schemas())
+						end,
+					})
+				end,
+				['yamlls'] = function()
+					lspconfig.yamlls.setup({
+						capabilities = capabilities,
+						settings = {
+							yaml = {
+								format = {
+									enable = true,
+								},
+								validate = { enable = true },
+								schemas = require('schemastore').yaml.schemas()
+							},
+						},
+						on_new_config = function(new_config)
+							new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+							vim.list_extend(new_config.settings.json.schemas, require('schemastore').json.schemas())
+						end,
+					})
+				end,
 			})
 		end,
 	},
