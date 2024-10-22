@@ -23,6 +23,9 @@ vim.opt.scrolloff = 8
 -- refresh
 vim.opt.updatetime = 500 -- defaults to 4000
 
+-- Allow cursor to go into areas without text when in visual block mode
+vim.opt.virtualedit = 'block'
+
 -- Highlighted column
 vim.g.colorcolumn = { 80, 120 }
 
@@ -32,7 +35,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Hightlight selection on yank',
 	pattern = '*',
 	callback = function()
-		vim.highlight.on_yank { higroup = 'IncSearch', timeout = 400 }
+		vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 400 })
 	end,
 })
 
